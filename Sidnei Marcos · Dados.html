@@ -1,0 +1,186 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Sidnei Marcos · Dados</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: ficha técnica em faixas — cabeçalho, régua de indicadores, entregas por camada (bronze → prata → ouro), desafios, skills */
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --ink:#0f1a2b; --muted:#566377; --line:#d9dfe8;
+  --accent:#1f4fd1; --accent-soft:#e6ecfb;
+  --bronze:#9a5a2a; --silver:#6b7686; --gold:#a9820c;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c121c; --surface:#131b28; --ink:#e8edf5; --muted:#9aa6b8; --line:#253043;
+  --accent:#7ea2ff; --accent-soft:#1a2742;
+  --bronze:#d4915c; --silver:#aab4c3; --gold:#e0b93a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c121c; --surface:#131b28; --ink:#e8edf5; --muted:#9aa6b8; --line:#253043;
+  --accent:#7ea2ff; --accent-soft:#1a2742;
+  --bronze:#d4915c; --silver:#aab4c3; --gold:#e0b93a; color-scheme:dark}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 56px;display:grid;gap:44px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* header */
+header{display:grid;gap:14px}
+h1{font-size:clamp(40px,7vw,68px);font-weight:800;font-stretch:78%;line-height:.95;letter-spacing:-.01em}
+.role{font-family:var(--display);font-stretch:90%;font-weight:600;font-size:clamp(18px,2.4vw,22px);color:var(--accent)}
+.pitch{max-width:64ch;color:var(--muted);margin:0}
+.path{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-family:var(--mono);font-size:13px}
+.path span{padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+.path span.now{border-color:var(--accent);color:var(--accent)}
+.path i{color:var(--muted);font-style:normal}
+
+/* indicators */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
+.kpi{padding:18px 16px 16px;display:grid;gap:4px;border-left:1px solid var(--line)}
+.kpi:first-child{border-left:0;padding-left:0}
+.kpi b{font-family:var(--display);font-stretch:80%;font-weight:800;font-size:clamp(34px,5vw,48px);line-height:1;font-variant-numeric:tabular-nums}
+.kpi b small{font-size:.5em;font-weight:700;color:var(--accent)}
+.kpi span{font-size:13px;color:var(--muted);line-height:1.35}
+
+section{display:grid;gap:18px}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px}
+h2{font-size:26px;font-weight:700;font-stretch:85%}
+
+/* entregas */
+.deliv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;gap:8px;align-content:start;min-width:0}
+.card h3{font-size:18px;font-weight:700;font-stretch:90%}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.tag{justify-self:start;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:3px;border:1px solid currentColor}
+.t-b{color:var(--bronze)} .t-s{color:var(--silver)} .t-g{color:var(--gold)} .t-a{color:var(--accent)}
+.card .metric{font-family:var(--mono);font-size:13px;color:var(--ink);border-top:1px dashed var(--line);padding-top:8px;margin-top:4px}
+.card.feature{grid-column:1/-1;border-color:var(--accent);background:var(--accent-soft)}
+
+/* desafios */
+.challenges{display:grid;gap:0;border-top:1px solid var(--line)}
+.ch{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);gap:12px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}
+.ch .from{color:var(--muted)}
+.ch .arrow{font-family:var(--mono);color:var(--accent);text-align:center}
+.ch .to{font-weight:500}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.skills h3{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.chip.core{border-color:var(--ink);font-weight:600}
+
+/* recs */
+.recs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.rec{border-left:2px solid var(--accent);padding:4px 0 4px 14px;display:grid;gap:6px}
+.rec p{margin:0}
+.rec span{font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+footer{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+footer a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+@media (max-width:760px){
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi:nth-child(3){border-left:0;padding-left:0}
+  .kpi:nth-child(n+3){border-top:1px solid var(--line)}
+  .deliv,.recs,.skills{grid-template-columns:1fr}
+  .ch{grid-template-columns:1fr;gap:4px}
+  .ch .arrow{text-align:left}
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Engenharia de Dados · Setor financeiro · São Paulo</div>
+    <h1>Sidnei Marcos</h1>
+    <div class="role">Engenheiro de Dados com visão de negócio</div>
+    <p class="pitch">Construo a base de dados que sustenta decisões de diretoria: ingestão, arquitetura em camadas, indicadores executivos e automação. Atuo como ponte entre áreas técnicas e executivas, levando projetos de ponta a ponta.</p>
+    <div class="path" aria-label="Trajetória">
+      <span>Banco Pan</span><i>→</i><span>C6 Bank</span><i>→</i><span class="now">Omni&amp;Co · atual</span>
+    </div>
+  </header>
+
+  <div class="kpis" role="list">
+    <div class="kpi" role="listitem"><b>9<small>+ anos</small></b><span>em dados e analytics</span></div>
+    <div class="kpi" role="listitem"><b>7<small> anos</small></b><span>no setor financeiro</span></div>
+    <div class="kpi" role="listitem"><b>3</b><span>instituições financeiras: Pan, C6 e Omni</span></div>
+    <div class="kpi" role="listitem"><b>1º</b><span>lugar no programa de RPA da Omni, entre 7 projetos</span></div>
+  </div>
+
+  <section>
+    <div class="sec-head"><h2>Principais entregas</h2><span class="eyebrow">da ingestão à decisão</span></div>
+    <div class="deliv">
+      <article class="card feature">
+        <span class="tag t-a">Automação · Premiada</span>
+        <h3>Automação RPA com UiPath e Python</h3>
+        <p>Processo manual automatizado com fluxo padronizado e mais seguro. Projeto vencedor do programa interno de RPA, que teve 125 participantes.</p>
+        <div class="metric">≈ 9 h/mês economizadas por colaborador · ganho cresce com a expansão para a companhia</div>
+      </article>
+      <article class="card">
+        <span class="tag t-b">Bronze · Ingestão</span>
+        <h3>Ingestão automatizada via SFTP</h3>
+        <p>Rotina em Python que coleta arquivos e carrega no Oracle SQL, eliminando carga manual.</p>
+      </article>
+      <article class="card">
+        <span class="tag t-s">Prata · Arquitetura</span>
+        <h3>Arquitetura medalhão no Microsoft Fabric</h3>
+        <p>Pipelines em PySpark organizados em bronze, prata e ouro, com dados centralizados e tratados.</p>
+      </article>
+      <article class="card">
+        <span class="tag t-g">Ouro · Consumo</span>
+        <h3>Indicadores e dashboards executivos</h3>
+        <p>Indicadores operacionais e estratégicos para diretorias e superintendência, usados na tomada de decisão.</p>
+      </article>
+      <article class="card">
+        <span class="tag t-a">IA · Em andamento</span>
+        <h3>Agentes de IA para acesso a dados</h3>
+        <p>Agentes que permitem às áreas de negócio consultar dados sem depender do time técnico.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Desafios resolvidos</h2><span class="eyebrow">problema → solução</span></div>
+    <div class="challenges">
+      <div class="ch"><div class="from">Dados espalhados em várias fontes e planilhas</div><div class="arrow">→</div><div class="to">Centralização em arquitetura em camadas, com fonte única</div></div>
+      <div class="ch"><div class="from">Cargas e rotinas feitas manualmente</div><div class="arrow">→</div><div class="to">Pipelines e RPA com padronização e controle</div></div>
+      <div class="ch"><div class="from">Demandas executivas sem tradução técnica</div><div class="arrow">→</div><div class="to">Indicadores definidos com o negócio e entregues de ponta a ponta</div></div>
+      <div class="ch"><div class="from">Áreas dependentes do time de dados para cada consulta</div><div class="arrow">→</div><div class="to">Agentes de IA e cultura data-driven na superintendência</div></div>
+      <div class="ch"><div class="from">Ferramenta nova, sem experiência prévia (UiPath)</div><div class="arrow">→</div><div class="to">Aprendida do zero e projeto premiado em 1º lugar</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Skills</h2><span class="eyebrow">destaque = uso diário</span></div>
+    <div class="skills">
+      <div><h3>Engenharia</h3><div class="chips">
+        <span class="chip core">Microsoft Fabric</span><span class="chip core">PySpark</span><span class="chip core">Python</span><span class="chip core">SQL</span><span class="chip">Oracle</span><span class="chip">Arquitetura medalhão</span><span class="chip">Pipelines de dados</span><span class="chip">SFTP</span>
+      </div></div>
+      <div><h3>Analytics, automação e IA</h3><div class="chips">
+        <span class="chip core">Dashboards executivos</span><span class="chip core">Indicadores (KPIs)</span><span class="chip">UiPath / RPA</span><span class="chip">Agentes de IA</span>
+      </div></div>
+      <div><h3>Negócio</h3><div class="chips">
+        <span class="chip core">Tradução negócio → dados</span><span class="chip">Projetos ponta a ponta</span><span class="chip">Priorização de demandas</span><span class="chip">Cultura data-driven</span><span class="chip">Português nativo</span><span class="chip">Inglês básico/intermediário</span>
+      </div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Recomendações</h2><span class="eyebrow">5 no LinkedIn</span></div>
+    <div class="recs">
+      <div class="rec"><p>Destaca a responsabilidade, a precisão na análise de dados e a postura proativa para otimizar processos.</p><span>Matheus Toledo · colega no Banco Pan</span></div>
+      <div class="rec"><p>Destaca a resolução ágil de problemas complexos, o foco em resultado e a comunicação clara.</p><span>Davi Domingues da Rosa · colega no C6 Bank</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Objetivo: Especialista ou liderança técnica em Engenharia de Dados</span>
+    <a href="https://www.linkedin.com/in/sidnei-marcos-1101/" target="_blank" rel="noopener">linkedin.com/in/sidnei-marcos-1101</a>
+  </footer>
+</div>
+
+</body></html>
