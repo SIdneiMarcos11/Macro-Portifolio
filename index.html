@@ -1,0 +1,287 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Sidnei Marcos · Dados</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: bento de impacto — hero com identidade, grade de ganhos em blocos de tamanhos diferentes, trajetória em trilha, entregas por camada medalhão, skills */
+:root{
+  --bg:#eef1f7; --panel:#ffffff; --ink:#0b1220; --muted:#5a6578; --line:#dde2ec;
+  --accent:#3355ff; --accent-ink:#ffffff; --accent-soft:#e7ecff; --gain:#0d8a63;
+  --hero:#0b1220; --hero-ink:#eef2ff; --hero-muted:#9aa6c2;
+  --bronze:#a3622f; --silver:#6f7a8c; --gold:#ad850b;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:18px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#070b14; --panel:#0f1625; --ink:#e9eef8; --muted:#97a3b9; --line:#1e2839;
+  --accent:#7d95ff; --accent-ink:#0b1220; --accent-soft:#18213b; --gain:#3fd0a0;
+  --hero:#121b30; --hero-ink:#eef2ff; --hero-muted:#9aa6c2;
+  --bronze:#d8955f; --silver:#aeb8c8; --gold:#e3bd42; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#070b14; --panel:#0f1625; --ink:#e9eef8; --muted:#97a3b9; --line:#1e2839;
+  --accent:#7d95ff; --accent-ink:#0b1220; --accent-soft:#18213b; --gain:#3fd0a0;
+  --hero:#121b30; --hero-ink:#eef2ff; --hero-muted:#9aa6c2;
+  --bronze:#d8955f; --silver:#aeb8c8; --gold:#e3bd42; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px;display:grid;gap:56px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+.label{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* hero */
+.hero{background:var(--hero);color:var(--hero-ink);border-radius:calc(var(--r) + 6px);padding:clamp(24px,5vw,48px);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-80px;top:-80px;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,color-mix(in srgb,var(--accent) 55%,transparent) 0%,transparent 70%);opacity:.55;pointer-events:none}
+.hero > *{position:relative;z-index:1}
+.hero .label{color:var(--hero-muted)}
+.hero h1{font-size:clamp(44px,7.5vw,84px);font-weight:800;line-height:.92;margin-top:14px}
+.hero .role{font-family:var(--display);font-weight:600;font-size:clamp(18px,2.4vw,24px);margin-top:14px;color:var(--hero-ink)}
+.hero .role em{font-style:normal;color:var(--accent)}
+.hero p{color:var(--hero-muted);max-width:56ch;margin:14px 0 0}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.stack span{font-family:var(--mono);font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--hero-ink) 22%,transparent);color:var(--hero-ink)}
+.hero-side{display:grid;align-content:end;gap:10px}
+.org{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid color-mix(in srgb,var(--hero-ink) 14%,transparent)}
+.org b{font-family:var(--display);font-size:18px;font-weight:700}
+.org span{font-family:var(--mono);font-size:11px;color:var(--hero-muted);text-align:right}
+.org.now b{color:var(--accent)}
+
+/* bento de ganhos */
+.sec{display:grid;gap:20px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap}
+h2{font-size:clamp(26px,3.4vw,34px);font-weight:700}
+.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:grid;gap:10px;align-content:space-between;min-width:0;transition:transform .2s ease,border-color .2s ease}
+.tile:hover{transform:translateY(-2px);border-color:var(--accent)}
+.tile .num{font-family:var(--display);font-weight:800;font-size:clamp(40px,5.4vw,60px);line-height:.95;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.tile .num small{font-size:.42em;font-weight:700;letter-spacing:0}
+.tile .num.gain{color:var(--gain)}
+.tile p{margin:0;color:var(--muted);font-size:14px}
+.tile .where{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.tile.wide{grid-column:span 2}
+.tile.feature{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tile.feature p,.tile.feature .where{color:var(--accent-ink);opacity:.85}
+
+/* trajetória */
+.track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;counter-reset:none}
+.stop{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:grid;gap:12px;align-content:start;min-width:0;position:relative}
+.stop.now{border-color:var(--accent)}
+.stop .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.stop h3{font-size:22px;font-weight:700}
+.pill{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.stop .area{font-weight:600}
+.stop p{margin:0;color:var(--muted);font-size:14px}
+.stop .win{display:flex;gap:10px;align-items:baseline;border-top:1px dashed var(--line);padding-top:12px;margin-top:2px}
+.stop .win b{font-family:var(--display);font-size:22px;color:var(--gain);font-variant-numeric:tabular-nums;white-space:nowrap}
+.stop .win span{font-size:13px;color:var(--muted);line-height:1.35}
+
+/* entregas */
+.deliv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:grid;gap:8px;align-content:start;min-width:0}
+.card h3{font-size:18px;font-weight:700}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.tag{justify-self:start;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid currentColor}
+.t-b{color:var(--bronze)} .t-s{color:var(--silver)} .t-g{color:var(--gold)} .t-a{color:var(--accent)}
+
+/* desafios */
+.challenges{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:6px 22px}
+.ch{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);gap:12px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}
+.ch:last-child{border-bottom:0}
+.ch .from{color:var(--muted)}
+.ch .arrow{font-family:var(--mono);color:var(--accent);text-align:center}
+.ch .to{font-weight:500}
+
+/* skills + formação */
+.split{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:14px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:grid;gap:18px;align-content:start;min-width:0}
+.group{display:grid;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13px;padding:5px 11px;border-radius:999px;border:1px solid var(--line)}
+.chip.core{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.edu b{font-family:var(--display);font-size:20px;display:block;line-height:1.2}
+.edu p{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+/* recs */
+.recs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.rec{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:grid;gap:10px;min-width:0}
+.rec p{margin:0;font-size:15px}
+.rec span{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 20px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+footer a{color:var(--accent);font-weight:600;text-decoration:none}
+footer a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){.tile{transition:none}.tile:hover{transform:none}}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .track{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .bento{grid-template-columns:1fr}
+  .tile.wide{grid-column:auto}
+  .deliv,.recs{grid-template-columns:1fr}
+  .ch{grid-template-columns:1fr;gap:4px}
+  .ch .arrow{text-align:left}
+}
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div>
+      <div class="label">Engenharia de Dados · BI · Automação · São Paulo</div>
+      <h1>Sidnei Marcos</h1>
+      <div class="role">Engenheiro de Dados com <em>visão de negócio</em></div>
+      <p>9+ anos transformando dados em decisão no setor financeiro. Construo da ingestão ao indicador executivo, automatizo processos e levo IA para as áreas de negócio.</p>
+      <div class="stack" aria-label="Stack principal">
+        <span>Microsoft Fabric</span><span>PySpark</span><span>Python</span><span>SQL</span><span>BI</span><span>RPA</span><span>Agentes de IA</span>
+      </div>
+    </div>
+    <div class="hero-side" aria-label="Trajetória resumida">
+      <div class="label">Trajetória</div>
+      <div class="org now"><b>Omni&amp;Co</b><span>Canais digitais · atual</span></div>
+      <div class="org"><b>C6 Bank</b><span>Automação de políticas</span></div>
+      <div class="org"><b>Banco Pan</b><span>BI e engenharia de dados</span></div>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec-head"><h2>Resultados</h2><span class="label">ganhos entregues</span></div>
+    <div class="bento">
+      <div class="tile wide feature">
+        <span class="where">C6 Bank</span>
+        <div class="num">R$ 3<small> mi</small></div>
+        <p>de saving em contrato: multa prevista evitada com as principais entregas do projeto.</p>
+      </div>
+      <div class="tile">
+        <span class="where">Banco Pan</span>
+        <div class="num gain">+5<small>%</small></div>
+        <p>na retenção e previsibilidade de clientes com risco de ação judicial.</p>
+      </div>
+      <div class="tile">
+        <span class="where">Omni · RPA</span>
+        <div class="num">9<small> h/mês</small></div>
+        <p>economizadas por colaborador. Projeto expandido para toda a organização.</p>
+      </div>
+      <div class="tile">
+        <span class="where">Omni · Prêmio</span>
+        <div class="num">1º</div>
+        <p>lugar no programa de RPA, entre 7 projetos e 125 participantes.</p>
+      </div>
+      <div class="tile">
+        <span class="where">Carreira</span>
+        <div class="num">9<small>+ anos</small></div>
+        <p>em dados, sendo 7 no setor financeiro.</p>
+      </div>
+      <div class="tile wide">
+        <span class="where">Escala</span>
+        <div class="num">3<small> bancos</small></div>
+        <p>Pan, C6 e Omni, atuando em operações, crédito, cobrança e canais digitais.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><h2>Trajetória</h2><span class="label">mais recente primeiro</span></div>
+    <div class="track">
+      <article class="stop now">
+        <div class="top"><h3>Omni&amp;Co</h3><span class="pill">Atual</span></div>
+        <div class="area">Operações · Canais digitais</div>
+        <p>Engenharia de dados e automação: arquitetura medalhão no Fabric, indicadores executivos, RPA e agentes de IA para a superintendência.</p>
+        <div class="win"><b>9 h/mês</b><span>por colaborador com RPA, expandido para a organização</span></div>
+      </article>
+      <article class="stop">
+        <div class="top"><h3>C6 Bank</h3><span class="pill">Automação</span></div>
+        <div class="area">Políticas e motores de decisão</div>
+        <p>Automação de regras de políticas e dos motores de decisão, garantindo entregas no prazo contratual.</p>
+        <div class="win"><b>R$ 3 mi</b><span>em multa contratual evitada</span></div>
+      </article>
+      <article class="stop">
+        <div class="top"><h3>Banco Pan</h3><span class="pill">BI</span></div>
+        <div class="area">BI e engenharia de dados · Operações</div>
+        <p>Indicadores de manutenção de crédito e cobrança, com a engenharia de dados que sustenta os números.</p>
+        <div class="win"><b>+5%</b><span>retenção e previsibilidade de clientes com risco judicial</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><h2>Principais entregas</h2><span class="label">da ingestão à decisão</span></div>
+    <div class="deliv">
+      <article class="card">
+        <span class="tag t-b">Bronze · Ingestão</span>
+        <h3>Ingestão automatizada via SFTP</h3>
+        <p>Rotina em Python que coleta arquivos e carrega no Oracle SQL, sem carga manual.</p>
+      </article>
+      <article class="card">
+        <span class="tag t-s">Prata · Arquitetura</span>
+        <h3>Arquitetura medalhão no Microsoft Fabric</h3>
+        <p>Pipelines em PySpark em camadas bronze, prata e ouro, com dados centralizados e tratados.</p>
+      </article>
+      <article class="card">
+        <span class="tag t-g">Ouro · Consumo</span>
+        <h3>Indicadores e dashboards executivos</h3>
+        <p>Indicadores operacionais e estratégicos usados por diretorias na tomada de decisão.</p>
+      </article>
+      <article class="card">
+        <span class="tag t-a">Automação e IA</span>
+        <h3>RPA premiado e agentes de IA</h3>
+        <p>Automação com UiPath e Python expandida para a companhia, e agentes que dão acesso a dados para as áreas de negócio.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><h2>Desafios resolvidos</h2><span class="label">problema → solução</span></div>
+    <div class="challenges">
+      <div class="ch"><div class="from">Risco de multa por atraso em entregas contratuais</div><div class="arrow">→</div><div class="to">Automação das políticas e entregas no prazo, evitando R$ 3 mi</div></div>
+      <div class="ch"><div class="from">Clientes com potencial de ação judicial sem visibilidade</div><div class="arrow">→</div><div class="to">Indicadores de previsibilidade e +5% de retenção</div></div>
+      <div class="ch"><div class="from">Dados espalhados em várias fontes e planilhas</div><div class="arrow">→</div><div class="to">Fonte única em arquitetura medalhão</div></div>
+      <div class="ch"><div class="from">Rotinas operacionais manuais</div><div class="arrow">→</div><div class="to">RPA que começou em uma área e foi expandido para toda a organização</div></div>
+      <div class="ch"><div class="from">Áreas dependentes do time de dados para cada consulta</div><div class="arrow">→</div><div class="to">Agentes de IA e cultura data-driven</div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><h2>Skills e formação</h2></div>
+    <div class="split">
+      <div class="box">
+        <div class="group"><span class="label">Engenharia</span><div class="chips">
+          <span class="chip core">Microsoft Fabric</span><span class="chip core">PySpark</span><span class="chip core">Python</span><span class="chip core">SQL</span><span class="chip">Oracle</span><span class="chip">Arquitetura medalhão</span><span class="chip">Pipelines</span><span class="chip">SFTP</span>
+        </div></div>
+        <div class="group"><span class="label">BI, automação e IA</span><div class="chips">
+          <span class="chip core">BI</span><span class="chip core">Dashboards executivos</span><span class="chip">KPIs</span><span class="chip">UiPath / RPA</span><span class="chip">Agentes de IA</span><span class="chip">Motores de decisão</span>
+        </div></div>
+        <div class="group"><span class="label">Negócio</span><div class="chips">
+          <span class="chip core">Tradução negócio → dados</span><span class="chip">Projetos ponta a ponta</span><span class="chip">Priorização</span><span class="chip">Cultura data-driven</span>
+        </div></div>
+      </div>
+      <div class="box">
+        <div class="edu"><span class="label">Formação</span><b style="margin-top:10px">Pós-graduação em Inteligência Artificial</b><p>Treinamento em Dados &amp; IA com IBMEC e programa de RPA da Omni.</p></div>
+        <div class="edu"><span class="label">Idiomas</span><p style="margin-top:8px;color:var(--ink)">Português nativo · Inglês básico a intermediário</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><h2>Recomendações</h2><span class="label">5 no LinkedIn</span></div>
+    <div class="recs">
+      <div class="rec"><p>Destaca a responsabilidade, a precisão na análise de dados e a postura proativa para otimizar processos.</p><span>Matheus Toledo · Banco Pan</span></div>
+      <div class="rec"><p>Destaca a resolução ágil de problemas complexos, o foco em resultado e a comunicação clara.</p><span>Davi Domingues da Rosa · C6 Bank</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Engenharia de Dados · BI · Automação · IA</span>
+    <a href="https://www.linkedin.com/in/sidnei-marcos-1101/" target="_blank" rel="noopener">LinkedIn ↗</a>
+  </footer>
+</div>
+
+</body></html>
